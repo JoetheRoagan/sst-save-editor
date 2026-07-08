@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sst-save-editor"
-version = "0.1.0"
+version = "0.1.1"
 authors = [
   { name="Joe Roagan", email="joetheroagan@gmail.com" },
 ]
@@ -18,6 +18,6 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/YOUR_USERNAME/sst-save-editor"
-"Repository" = "https://github.com/YOUR_USERNAME/sst-save-editor"
-"Issues" = "https://github.com/YOUR_USERNAME/sst-save-editor/issues"
+"Homepage" = "https://github.com/JoetheRoagan/sst-save-editor"
+"Repository" = "https://github.com/JoetheRoaganE/sst-save-editor"
+"Issues" = "https://github.com/JoetheRoagan/sst-save-editor/issues"
