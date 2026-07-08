@@ -84,7 +84,7 @@ chemistry.add_reaction(properties={
 
 materials.edit_metadata(material_id=0, tag="tag", value="Unused") # Changes the "tag" tag of the Default material (ID 0) to "Unused"
 # It moves it to a category named "Unused" in the material menu.
-materials.edit_material(material_id=0, property="rgb", value=[0.0, 1.0, 1.0, 1.0]) # Gives the Default material a bright purple color.
+materials.edit_material(material_id=0, property="rgb", value[1.0, 0.0, 1.0, 1.0]) # Gives the Default material a bright purple color.
 
 # Save materials and their metadata back to the folder:
 materials.save_properties()
@@ -100,7 +100,7 @@ chemistry.save_metadata()
 Script that generates a wire with a material that emits rainbow waves:
 ```python
 import colorsys # (For the colors)
-from SST_save_editor import SaveManager
+from sst_save_editor import SaveManager
 
 save = SaveManager("save.tar")
 save.load() # Load the save from SST.
