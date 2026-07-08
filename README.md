@@ -9,7 +9,7 @@ pip install sst-save-editor
 
 # Example scripts:
 
-Loading, editing, and saving changes to a save file:
+### Loading, editing, and saving changes to a save file:
 
 ```python
 from sst_save_editor import SaveManager
@@ -59,7 +59,7 @@ print(f"ID1: {id1}\nID2: {id2}") # Prints the ID of the first reaction, and the 
 save.save() # Saves the changes to C:\Program Files (x86)\Steam\steamapps\common\Space Simulation Toolkit\saves\local\save.tar
 ```
 
-Script that manually loads, edits, and saves changes to a save file:
+### Script that manually loads, edits, and saves changes to a save file:
 
 ```python
 from sst_save_editor import Materials, Chemistry
@@ -97,7 +97,7 @@ chemistry.save_metadata()
 # Then compress the folder back into tar and move it into the /saves/local folder in SST, and play!
 ```
 
-Script that generates a wire with a material that emits rainbow waves:
+### Script that generates a wire with a material that emits rainbow waves:
 ```python
 import colorsys # (For the colors)
 from sst_save_editor import SaveManager
