@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sst-save-editor"
+version = "0.1.0"
+authors = [
+  { name="Joe Roagan", email="joetheroagan@gmail.com" },
+]
+description = "A reverse-engineered save editor for Space Simulation Toolkit."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/YOUR_USERNAME/sst-save-editor"
+"Repository" = "https://github.com/YOUR_USERNAME/sst-save-editor"
+"Issues" = "https://github.com/YOUR_USERNAME/sst-save-editor/issues"
