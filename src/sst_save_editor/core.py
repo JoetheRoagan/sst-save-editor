@@ -462,8 +462,12 @@ class Chemistry:
         print(f"Reaction metadata saved!")
 
 class SaveManager:
-    def __init__(self, save, sst="C:\\Program Files (x86)\\Steam\\steamapps\\common\\Space Simulation Toolkit"):
-        self.save_name = Path(save)
+    def __init__(self, save=None, sst="C:\\Program Files (x86)\\Steam\\steamapps\\common\\Space Simulation Toolkit"):
+        if save is None:
+            print("You have not provided a save!")
+            self.save_name = None
+        else:
+            self.save_name = Path(save)
         self.script_cache = Path("./_save_cache")
         self.sst = Path(sst)
         self.materials = None
