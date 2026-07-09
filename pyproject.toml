@@ -19,5 +19,5 @@ classifiers = [
 
 [project.urls]
 "Homepage" = "https://github.com/JoetheRoagan/sst-save-editor"
-"Repository" = "https://github.com/JoetheRoaganE/sst-save-editor"
+"Repository" = "https://github.com/JoetheRoagan/sst-save-editor"
 "Issues" = "https://github.com/JoetheRoagan/sst-save-editor/issues"
