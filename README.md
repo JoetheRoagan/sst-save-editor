@@ -144,3 +144,27 @@ for i in range(COUNT):
 
 save.save() # Save changes to the save file.
 ```
+
+### Script that generates a wire and signals based on metal (12):
+```python
+from sst_save_editor import SaveManager
+
+save = SaveManager("save.tar")
+save.load() # Load the save from SST.
+
+wire = save.materials.create_material("Wire-0", "Electricity", {"cdist": 1, "rgb": [1.0, 1.0, 1.0, 1.0], "hdiff": 0}, 12) # Creates a white, smaller wire material from metal.
+wire2 = save.materials.create_material("Wire-2", "Electricity", {"rgb": [1.0, 1.0, 0.0, 1.0]}, wire) # Creates a yellow signal material based on the wire.
+wire1 = save.materials.create_material("Wire-1", "Electricity", {"rgb": [0.75, 0.75, 0.0, 1.0]}, wire) # A darker yellow signal material based on the wire.
+emitter = save.materials.create_material("Emitter", "Electricity", {"rgb": [1.0, 0.0, 0.0, 1.0]}, wire) # Creates a red material to emit signals, based on wire.
+
+save.chemistry.add_symmetrical_reaction(source1=wire2, source2=wire, result1=wire2, result2=wire2, chance=100) # Wire-2 + Wire-0 => Wire-2 + Wire-2
+save.chemistry.add_symmetrical_reaction(source1=wire1, source2=wire2, result1=wire1, result2=wire1, chance=100) # Wire-1 + Wire-2 => Wire-1 + Wire-1
+save.chemistry.add_symmetrical_reaction(source1=wire, source2=wire1, result1=wire, result2=wire, chance=100) # Wire-0 + Wire-1 => Wire-0 + Wire-0
+# In these reactions, Wire-2 is the front of the signal, Wire-1 is the middle, Wire-0 is the wire state, no signal.
+save.chemistry.add_symmetrical_reaction(source1=emitter, source2=wire, result1=emitter, result2=wire2, chance=100) # Emitter + Wire-0 => Emitter + Wire-2
+save.chemistry.add_symmetrical_reaction(source1=emitter, source2=wire2, result1=emitter, result2=wire1, chance=100) # Emitter + Wire-2 => Emitter + Wire-1
+save.chemistry.add_symmetrical_reaction(source1=emitter, source2=wire1, result1=emitter, result2=wire, chance=100) # Emitter + Wire-1 => Emitter + Wire-0
+# In these reactions, the Emitter emits signals.
+
+save.save() # Save changes to the save file.
+```

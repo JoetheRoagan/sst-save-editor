@@ -93,7 +93,7 @@ class Materials:
                 if "item" in entry and entry["item"].get("uid", 0) == uid:
                     return index
 
-    def create_material(self, title="New Material", tag="Custom", properties=None):
+    def create_material(self, title=None, tag=None, properties=None, base=0):
         if not self.metadata or not self.properties:
             print("You must load both properties and material metadata first!")
             return None
@@ -107,7 +107,13 @@ class Materials:
         for property, values_list in self.properties.items():
             stride = self.STRIDE_MAP.get(property, 1)
             type_character = self._get_format_character(property)
-            default = values_list[0] if len(values_list) > 0 else 0
+            if len(values_list) > base:
+                default = values_list[base]
+            elif len(values_list) > 0:
+                default = values_list[0]
+            else:
+                default = [0.0 if type_character == "f" else 0] * stride if stride > 1 else (0.0 if type_character == "f" else 0)
+       
             default = default[:] if isinstance(default, list) else default
             
             if property in ["__ar", "__ra"]:
@@ -142,17 +148,19 @@ class Materials:
 
                 values_list.append(value)
 
+        base_metadata = self.get_metadata(base)
+
         entry = {
-            "title": title,
-            "tag": tag,
-            "color": "#FFFFFFFF",
+            "title": title if title else base_metadata["title"],
+            "tag": tag if tag else base_metadata["tag"],
+            "color": base_metadata["color"],
             "invert": 1,
-            "icon": "fa_asterisk",
+            "icon": base_metadata["icon"],
             "item": {
                 "uid": id,
-                "title": title,
-                "icon": "fa_asterisk",
-                "color": "#FFFFFFFF",
+                "title": title if title else base_metadata["title"],
+                "icon": base_metadata["icon"],
+                "color": base_metadata["color"],
                 "active": 1
             }
         }
