@@ -15,7 +15,7 @@ class Materials:
         self.FLOAT_PROPERTIES = {
             "add_linked", "add_temp", "aquacap", "aquacond", "arobust",
             "cdist", "cpow", "csize", "csizemul", "damp", "gravity",
-            "hdiff", "ldamp", "lpow", "lrobust", "mass", "phototemp",
+            "hdiff", "hdiff2", "ldamp", "lpow", "lrobust", "mass", "phototemp",
             "rgb", "tcond", "tdistmax", "tpowmax", "max_stuck", "electroheat",
             "electrocap", "electrocond", "electrophotomass", "sangle", "electroforce",
             "electrotonus", "frct", "attr", "xeno", "magnetic", "tdist", "tpow",
